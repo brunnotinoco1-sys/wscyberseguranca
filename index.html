@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W&S Cyber Segurança | Wendell & Scheilla</title>
+    <meta name="description" content="Proteção de nível militar e investigações digitais especializadas. Mais de 10 anos de experiência na prevenção de invasões e desenvolvimento de softwares seguros.">
+    <!-- FontAwesome for high-tech icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Mobile Navigation Header -->
+        <header class="mobile-header" id="mobileHeader">
+            <div class="mobile-brand">W&S CYBER SECURITY</div>
+            <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Abrir Menu">MENU</button>
+        </header>
+
+        <!-- Sidebar Navigation Console -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand-section">
+                <div class="logo-container">
+                    <span class="logo-letter">S</span>
+                </div>
+                <h1 class="brand-name">W&S Cyber</h1>
+                <div class="brand-subtitle">Segurança & Dev</div>
+            </div>
+
+            <nav class="nav-menu-wrapper">
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-tab="dashboard">
+                        <a class="nav-link"><i class="fa-solid fa-gauge-high"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item" data-tab="sobre">
+                        <a class="nav-link"><i class="fa-solid fa-user-shield"></i>Sobre</a>
+                    </li>
+                    <li class="nav-item" data-tab="dicas">
+                        <a class="nav-link"><i class="fa-solid fa-shield-halved"></i>Dicas de Proteção</a>
+                    </li>
+                    <li class="nav-item" data-tab="ferramentas">
+                        <a class="nav-link"><i class="fa-solid fa-terminal"></i>Ferramentas</a>
+                    </li>
+                    <li class="nav-item" data-tab="download">
+                        <a class="nav-link"><i class="fa-solid fa-download"></i>Download</a>
+                    </li>
+                    <li class="nav-item" data-tab="contato">
+                        <a class="nav-link"><i class="fa-solid fa-envelope"></i>Contato</a>
+                    </li>
+                    <li class="nav-item" data-tab="contratar">
+                        <a class="nav-link"><i class="fa-solid fa-file-signature"></i>Contratar</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div>W&S © 2026</div>
+                <div>SECURE CONNECTION</div>
+            </div>
+        </aside>
+
+        <!-- Main Window -->
+        <main class="main-content">
+            
+            <!-- Global Status Bar -->
+            <div class="status-bar">
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span>SISTEMA OPERACIONAL: ATIVO / PROTEGIDO</span>
+                </div>
+                <div class="system-time" id="systemTime">CORE_TIME: 00:00:00</div>
+            </div>
+
+            <!-- SECTION: DASHBOARD / HOME -->
+            <section id="dashboard" class="content-section active">
+                <div class="hero-grid">
+                    <div class="hero-text-card">
+                        <div class="badge-experience">
+                            <i class="fa-solid fa-award"></i> Mais de 10 anos de experiência
+                        </div>
+                        <h2 class="hero-title">Defendendo o seu <span>Espaço Digital</span></h2>
+                        <p class="hero-description">
+                            A W&S Cyber Segurança atua no desenvolvimento de softwares seguros, análise de vulnerabilidade, inteligência contra invasões e investigações cibernéticas de alta precisão. Liderado pelos especialistas Wendell &amp; Scheilla.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn-cyber" onclick="switchSection('contratar')">
+                                <i class="fa-solid fa-bolt"></i> Contratar Serviço
+                            </button>
+                            <button class="btn-cyber btn-cyber-green" onclick="switchSection('ferramentas')">
+                                <i class="fa-solid fa-shield-virus"></i> Testar Vulnerabilidade
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Threat Map HUD -->
+                    <div class="panel threat-map-container">
+                        <h3 class="panel-title"><i class="fa-solid fa-earth-americas"></i> Monitor Global de Ameaças (Simulação)</h3>
+                        <canvas id="threatMap" class="threat-canvas"></canvas>
+                        <div id="threatLog" class="threat-log">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Counters -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-val" id="statBlocked">294.810</div>
+                        <div class="stat-lbl">Ameaças Bloqueadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-val">10+ Anos</div>
+                        <div class="stat-lbl">Experiência Ativa</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-val">100%</div>
+                        <div class="stat-lbl">Confidencialidade</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-val">0s</div>
+                        <div class="stat-lbl">Falhas Críticas</div>
+                    </div>
+                </div>
+
+                <!-- Services Grid -->
+                <h3 class="panel-title" style="margin-top: 1rem;"><i class="fa-solid fa-screwdriver-wrench"></i> Nossos Serviços Especializados</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h4 class="service-title">Cyber Segurança</h4>
+                        <p class="service-desc">Auditorias completas, testes de intrusão (Pentest) e hardening de servidores corporativos para blindar seus sistemas contra agentes maliciosos.</p>
+                        <span class="service-badge">Foco: Red/Blue Team</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+                        <h4 class="service-title">Investigação Digital</h4>
+                        <p class="service-desc">Computação forense avançada, análise de logs, rastreamento de invasões e recuperação de ativos digitais perdidos ou sequestrados.</p>
+                        <span class="service-badge">Foco: Forense Digital</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-user-secret"></i>
+                        </div>
+                        <h4 class="service-title">Investigação Privada</h4>
+                        <p class="service-desc">Investigação corporativa, detecção de espionagem industrial, infiltração de sistemas internos suspeitos e análise de background.</p>
+                        <span class="service-badge">Foco: Inteligência</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h4 class="service-title">Desenvolvimento de Software</h4>
+                        <p class="service-desc">Criação de ferramentas customizadas, scripts de automação, softwares seguros com criptografia de ponta a ponta nativa.</p>
+                        <span class="service-badge">Foco: Security Dev</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="service-title">Proteção contra Invasão</h4>
+                        <p class="service-desc">Instalação de Firewalls robustos de última geração, IPS/IDS inteligentes e monitoramento ativo 24/7 de tráfego de rede incomum.</p>
+                        <span class="service-badge">Foco: Proteção de Rede</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: SOBRE -->
+            <section id="sobre" class="content-section">
+                <div class="panel">
+                    <h2 class="panel-title"><i class="fa-solid fa-user-shield"></i> Sobre a W&S Cyber Segurança</h2>
+                    
+                    <div class="about-grid">
+                        <div class="about-text-column">
+                            <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--accent-cyan);">
+                                Fundada pela união de dois especialistas de elite, Wendell &amp; Scheilla, a W&S acumula mais de 10 anos de atuação discreta e altamente técnica no ecossistema da segurança da informação.
+                            </p>
+                            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                                Nós entendemos que a segurança não se resume a instalar antivírus. Ela envolve a arquitetura defensiva, testes agressivos de invasão e o desenvolvimento contínuo de ferramentas robustas capazes de neutralizar ransomwares, spywares e golpes direcionados.
+                            </p>
+                            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                                Com uma forte reputação no mercado nacional e internacional, atuamos tanto na prevenção (desenvolvimento de firewalls e códigos limpos) quanto na resposta pós-incidente (investigações forenses de alta complexidade e perícias cibernéticas para empresas e indivíduos).
+                            </p>
+                        </div>
+                        
+                        <div class="about-features">
+                            <div class="about-feature-item">
+                                <i class="fa-solid fa-microchip about-feature-icon"></i>
+                                <div class="about-feature-text">
+                                    <h4>Padrão Corporativo Premium</h4>
+                                    <p>Nossas soluções de segurança e desenvolvimento seguem as melhores diretrizes internacionais de conformidade da ISO 27001 e OWASP.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="about-feature-item">
+                                <i class="fa-solid fa-eye-slash about-feature-icon"></i>
+                                <div class="about-feature-text">
+                                    <h4>Foco Absoluto em Privacidade</h4>
+                                    <p>Garantimos absoluto sigilo profissional nas investigações e no processamento de dados confidenciais dos nossos clientes.</p>
+                                </div>
+                            </div>
+
+                            <div class="about-feature-item">
+                                <i class="fa-solid fa-user-tie about-feature-icon"></i>
+                                <div class="about-feature-text">
+                                    <h4>Wendell &amp; Scheilla</h4>
+                                    <p>Consultores especialistas certificados com ampla experiência técnica em Engenharia Reversa, Forense Digital e Arquitetura de Redes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title"><i class="fa-solid fa-circle-nodes"></i> Nossos Princípios Fundamentais</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+                        <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px;">
+                            <div style="font-size: 2.2rem; color: var(--accent-cyan); margin-bottom: 0.5rem;"><i class="fa-solid fa-user-secret"></i></div>
+                            <h4 style="font-family: var(--font-cyber); margin-bottom: 0.5rem;">Anonimato</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary);">Investigações privadas discretas com proteção completa de fontes.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px;">
+                            <div style="font-size: 2.2rem; color: var(--accent-green); margin-bottom: 0.5rem;"><i class="fa-solid fa-laptop-code"></i></div>
+                            <h4 style="font-family: var(--font-cyber); margin-bottom: 0.5rem;">Inovação Dev</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary);">Softwares customizados com defesa ativa integrada desde a primeira linha de código.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px;">
+                            <div style="font-size: 2.2rem; color: var(--accent-amber); margin-bottom: 0.5rem;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <h4 style="font-family: var(--font-cyber); margin-bottom: 0.5rem;">Defesa Rápida</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary);">Capacidade operacional para mitigar invasões em andamento a qualquer hora.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: DICAS DE PROTEÇÃO -->
+            <section id="dicas" class="content-section">
+                <div class="panel">
+                    <h2 class="panel-title"><i class="fa-solid fa-shield-halved"></i> Central de Inteligência e Dicas de Proteção</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        A informação é o seu primeiro escudo. Explore nosso banco de conhecimento especializado para identificar ameaças e blindar seus dispositivos contra invasores.
+                    </p>
+
+                    <div class="tips-container">
+                        <!-- Navigation submenu for Tips -->
+                        <aside class="tips-sidebar">
+                            <button class="tips-menu-btn active" data-subtab="tips-celular">
+                                <i class="fa-solid fa-mobile-screen-button"></i> Invasões no Celular
+                            </button>
+                            <button class="tips-menu-btn" data-subtab="tips-virus">
+                                <i class="fa-solid fa-virus"></i> Dicionário de Vírus
+                            </button>
+                            <button class="tips-menu-btn" data-subtab="tips-dados">
+                                <i class="fa-solid fa-database"></i> Dados mais Roubados
+                            </button>
+                            <button class="tips-menu-btn" data-subtab="tips-proteger">
+                                <i class="fa-solid fa-circle-check"></i> Checklist de Proteção
+                            </button>
+                        </aside>
+
+                        <!-- Tips dynamic display panel -->
+                        <div class="tips-content-panel">
+                            
+                            <!-- SUB-SECTION: MOBILE INVASIONS -->
+                            <div id="tips-celular" class="tip-sub-section active">
+                                <h3 style="font-family: var(--font-cyber); color: var(--accent-cyan); margin-bottom: 1rem;">Como os celulares são invadidos?</h3>
+                                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                                    Dispositivos móveis tornaram-se o alvo principal dos cibercriminosos, contendo dados bancários, fotos, senhas e comunicações pessoais. Conheça as ameaças mais frequentes:
+                                </p>
+                                
+                                <div class="data-grid">
+                                    <div class="data-box" style="border-color: var(--accent-cyan); background: rgba(0, 240, 255, 0.02);">
+                                        <h4 style="color: var(--accent-cyan);"><i class="fa-solid fa-envelope-open-text" style="color: var(--accent-cyan);"></i> Phishing / Smishing</h4>
+                                        <p>Mensagens de SMS ou WhatsApp falsas contendo links maliciosos que se disfarçam de agências bancárias ou de entrega, induzindo a instalação de spywares.</p>
+                                    </div>
+                                    <div class="data-box" style="border-color: var(--accent-cyan); background: rgba(0, 240, 255, 0.02);">
+                                        <h4 style="color: var(--accent-cyan);"><i class="fa-solid fa-sim-card" style="color: var(--accent-cyan);"></i> SIM Swapping (Clonagem)</h4>
+                                        <p>O criminoso corrompe funcionários de operadoras de telefonia para transferir o seu número de chip para um chip sob o controle dele, sequestrando contas de WhatsApp e 2FA.</p>
+                                    </div>
+                                    <div class="data-box" style="border-color: var(--accent-cyan); background: rgba(0, 240, 255, 0.02);">
+                                        <h4 style="color: var(--accent-cyan);"><i class="fa-solid fa-download" style="color: var(--accent-cyan);"></i> Lojas de Apps Não Oficiais</h4>
+                                        <p>Downloads de arquivos APK de fontes desconhecidas ou modificados (como "WhatsApp Premium"). Eles trazem vírus ocultos com privilégios de acessibilidade.</p>
+                                    </div>
+                                    <div class="data-box" style="border-color: var(--accent-cyan); background: rgba(0, 240, 255, 0.02);">
+                                        <h4 style="color: var(--accent-cyan);"><i class="fa-solid fa-wifi" style="color: var(--accent-cyan);"></i> Redes Wi-Fi Públicas</h4>
+                                        <p>Redes abertas de cafés ou aeroportos sem senha podem ser operadas por hackers que interceptam todo o seu tráfego de rede (ataques Man-In-The-Middle).</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SUB-SECTION: VIRUS GLOSSARY -->
+                            <div id="tips-virus" class="tip-sub-section">
+                                <h3 style="font-family: var(--font-cyber); color: var(--accent-cyan); margin-bottom: 1rem;">Glossário de Softwares Maliciosos (Vírus)</h3>
+                                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                                    Vírus é um termo genérico para <i>Malware</i>. Veja os principais agentes, seus métodos de contaminação e o estrago que provocam:
+                                </p>
+
+                                <input type="text" id="virusSearch" class="glossary-search" placeholder="Buscar vírus (ex: Trojan, Ransomware...)">
+
+                                <div id="virusGlossaryContainer">
+                                    <!-- Virus Item: Trojan -->
+                                    <div class="virus-card" data-virus-name="trojan cavalo de troia">
+                                        <div class="virus-header">
+                                            <div class="virus-name">
+                                                <i class="fa-solid fa-horse-head"></i> Trojan (Cavalo de Tróia)
+                                            </div>
+                                            <span class="virus-tag tag-alto">Alto Risco</span>
+                                            <i class="fa-solid fa-chevron-down virus-toggle-icon"></i>
+                                        </div>
+                                        <div class="virus-body">
+                                            <div class="virus-content">
+                                                <p>O Cavalo de Tróia se disfarça de um arquivo legítimo ou software inofensivo para enganar o usuário e conseguir execução no sistema.</p>
+                                                <div class="virus-detail-grid">
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">Como Invade</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Anexos de e-mail de spam, downloads de cracks ou torrents de softwares piratas.</p>
+                                                    </div>
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">O que faz no sistema</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Abre uma porta secreta (Backdoor) para hackers controlarem a máquina, roubarem dados e instalarem outros malwares.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Virus Item: Ransomware -->
+                                    <div class="virus-card" data-virus-name="ransomware sequestrador sequestro">
+                                        <div class="virus-header">
+                                            <div class="virus-name">
+                                                <i class="fa-solid fa-key"></i> Ransomware
+                                            </div>
+                                            <span class="virus-tag tag-critico">Crítico</span>
+                                            <i class="fa-solid fa-chevron-down virus-toggle-icon"></i>
+                                        </div>
+                                        <div class="virus-body">
+                                            <div class="virus-content">
+                                                <p>O vírus sequestrador de dados. Atualmente é a maior ameaça contra empresas de todos os portes no mundo todo.</p>
+                                                <div class="virus-detail-grid">
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">Como Invade</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Links maliciosos, vulnerabilidades não corrigidas em servidores remotos expostos na internet (como portas RDP).</p>
+                                                    </div>
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">O que faz no sistema</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Criptografa arquivos do usuário (.pdf, .jpg, .docx, bancos de dados) e exige pagamento de resgate em Bitcoin para liberá-los.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Virus Item: Spyware -->
+                                    <div class="virus-card" data-virus-name="spyware espiao keylogger stalkerware">
+                                        <div class="virus-header">
+                                            <div class="virus-name">
+                                                <i class="fa-solid fa-user-secret"></i> Spyware / Keylogger
+                                            </div>
+                                            <span class="virus-tag tag-alto">Alto Risco</span>
+                                            <i class="fa-solid fa-chevron-down virus-toggle-icon"></i>
+                                        </div>
+                                        <div class="virus-body">
+                                            <div class="virus-content">
+                                                <p>Software projetado para espionar o comportamento do usuário e coletar dados de forma silenciosa, sem levantar qualquer alarme no computador.</p>
+                                                <div class="virus-detail-grid">
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">Como Invade</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Instaladores de pacotes de programas gratuitos "bundle", exploits de navegador ou stalkerware instalado fisicamente.</p>
+                                                    </div>
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">O que faz no sistema</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Grava as teclas digitadas (keylogger), faz capturas de tela frequentes, liga microfone/câmera e envia os logs para servidores remotos.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Virus Item: Worms -->
+                                    <div class="virus-card" data-virus-name="worms verme rede auto replicante">
+                                        <div class="virus-header">
+                                            <div class="virus-name">
+                                                <i class="fa-solid fa-bug"></i> Worms (Vermes de Rede)
+                                            </div>
+                                            <span class="virus-tag tag-alto">Alto Risco</span>
+                                            <i class="fa-solid fa-chevron-down virus-toggle-icon"></i>
+                                        </div>
+                                        <div class="virus-body">
+                                            <div class="virus-content">
+                                                <p>Malware altamente contagioso projetado para se espalhar autonomamente de máquina para máquina em uma rede local, sem intervenção humana.</p>
+                                                <div class="virus-detail-grid">
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">Como Invade</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Varre a rede em busca de sistemas com portas abertas e exploits de segurança críticos conhecidos (como MS17-010 EternalBlue).</p>
+                                                    </div>
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">O que faz no sistema</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Consome banda da rede, derruba conexões, e implanta backdoors/ransomwares em todas as máquinas conectadas à rede local.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Virus Item: Adware -->
+                                    <div class="virus-card" data-virus-name="adware propaganda spam popups">
+                                        <div class="virus-header">
+                                            <div class="virus-name">
+                                                <i class="fa-solid fa-rectangle-ad"></i> Adware
+                                            </div>
+                                            <span class="virus-tag tag-medio">Médio Risco</span>
+                                            <i class="fa-solid fa-chevron-down virus-toggle-icon"></i>
+                                        </div>
+                                        <div class="virus-body">
+                                            <div class="virus-content">
+                                                <p>Software publicitário agressivo que infesta o dispositivo de propagandas indesejadas e sequestra páginas do navegador web.</p>
+                                                <div class="virus-detail-grid">
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">Como Invade</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Programas "freeware" baixados em portais de terceiros que trazem opções de instalação camufladas.</p>
+                                                    </div>
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">O que faz no sistema</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Abre popups incessantes de anúncio, muda a ferramenta de pesquisa padrão do navegador e redireciona tráfego para links suspeitos.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Virus Item: Rootkits -->
+                                    <div class="virus-card" data-virus-name="rootkits nucleo kernel ocultador invisivel">
+                                        <div class="virus-header">
+                                            <div class="virus-name">
+                                                <i class="fa-solid fa-circle-nodes"></i> Rootkits
+                                            </div>
+                                            <span class="virus-tag tag-critico">Crítico</span>
+                                            <i class="fa-solid fa-chevron-down virus-toggle-icon"></i>
+                                        </div>
+                                        <div class="virus-body">
+                                            <div class="virus-content">
+                                                <p>O tipo de malware mais furtivo. Ele se infiltra no nível de núcleo (Kernel) do sistema operacional, camuflando-se de forma absoluta.</p>
+                                                <div class="virus-detail-grid">
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">Como Invade</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Downloads acionados por vulnerabilidades de nível de sistema (exploit kits) executados com direitos de administrador.</p>
+                                                    </div>
+                                                    <div class="virus-detail-block">
+                                                        <div class="virus-detail-title">O que faz no sistema</div>
+                                                        <p style="font-size:0.85rem; color: var(--text-secondary);">Oculta processos maliciosos, chaves de registro e arquivos das ferramentas de antivírus comuns, mantendo o controle permanente da máquina.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SUB-SECTION: DATA STOLEN -->
+                            <div id="tips-dados" class="tip-sub-section">
+                                <h3 style="font-family: var(--font-cyber); color: var(--accent-cyan); margin-bottom: 1rem;">Quais são os dados mais roubados?</h3>
+                                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                                    O cibercrime é movido a dinheiro. Os dados roubados em invasões ou vazamentos de bancos de dados são vendidos em fóruns da Dark Web pelos seguintes valores estimativos:
+                                </p>
+
+                                <div class="data-grid">
+                                    <div class="data-box">
+                                        <h4><i class="fa-solid fa-credit-card"></i> Cartões e Bancos</h4>
+                                        <p>Dados de cartões de crédito (número, validade e CVV) e acessos a internet banking são vendidos para fraudes rápidas ou lavagem de dinheiro.</p>
+                                    </div>
+                                    <div class="data-box">
+                                        <h4><i class="fa-solid fa-key"></i> Senhas e Credenciais</h4>
+                                        <p>Combinações de E-mail + Senha. Devido ao hábito de reutilização de senhas, hackers usam bots de automatização para testar esses logins em múltiplos serviços.</p>
+                                    </div>
+                                    <div class="data-box">
+                                        <h4><i class="fa-solid fa-id-card"></i> CPF &amp; Documentos</h4>
+                                        <p>Números de documentos pessoais, fotos de "selfie com documento" e comprovantes de residência. Usados em fraudes de engenharia social para obter empréstimos.</p>
+                                    </div>
+                                    <div class="data-box">
+                                        <h4><i class="fa-solid fa-folder-open"></i> Arquivos Confidenciais</h4>
+                                        <p>Fotos pessoais, conversas íntimas, segredos comerciais corporativos. São a base preferencial para ataques de extorsão dupla sob a ameaça de exposição.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SUB-SECTION: PROTECTION CHECKLIST -->
+                            <div id="tips-proteger" class="tip-sub-section">
+                                <h3 style="font-family: var(--font-cyber); color: var(--accent-cyan); margin-bottom: 1rem;">O que fazer para se proteger?</h3>
+                                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                                    A segurança cibernética depende de hábitos saudáveis. Adote estas medidas imediatas para elevar a segurança de todos os seus dispositivos domésticos e corporativos:
+                                </p>
+
+                                <ul class="security-checklist">
+                                    <li class="checklist-item">
+                                        <div class="checklist-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                        <div class="checklist-text">
+                                            <h4>Habilite o 2FA (Verificação em Duas Etapas)</h4>
+                                            <p>Use aplicativos autenticadores (Google Authenticator, Aegis) em vez de SMS para proteger e-mails, redes sociais e contas bancárias.</p>
+                                        </div>
+                                    </li>
+                                    <li class="checklist-item">
+                                        <div class="checklist-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                        <div class="checklist-text">
+                                            <h4>Utilize um Gerenciador de Senhas</h4>
+                                            <p>Crie senhas únicas, complexas e longas para cada serviço (mínimo de 14 caracteres com caracteres especiais) e salve-as em cofres seguros offline ou criptografados.</p>
+                                        </div>
+                                    </li>
+                                    <li class="checklist-item">
+                                        <div class="checklist-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                        <div class="checklist-text">
+                                            <h4>Mantenha Atualizações em Dia</h4>
+                                            <p>Configure o sistema operacional do celular (iOS/Android) e computadores para atualizar automaticamente. Atualizações corrigem brechas ativas exploradas por malwares.</p>
+                                        </div>
+                                    </li>
+                                    <li class="checklist-item">
+                                        <div class="checklist-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                        <div class="checklist-text">
+                                            <h4>Desconfie de Urgências e Promoções</h4>
+                                            <p>A engenharia social manipula emoções. Se o banco ligar pedindo código de confirmação, ou se receber um alerta de "bloqueio judicial urgente", desligue e busque canais oficiais.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: FERRAMENTAS INTERATIVAS -->
+            <section id="ferramentas" class="content-section">
+                <div class="tools-grid">
+                    
+                    <!-- Widget 1: Password health checker -->
+                    <div class="panel">
+                        <h3 class="panel-title"><i class="fa-solid fa-key"></i> Analisador de Senhas Militar</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                            Descubra a resistência da sua senha contra ataques de força bruta realizados por supercomputadores de hackers. (Sua senha não é enviada para nenhum servidor externo).
+                        </p>
+
+                        <div class="pwd-input-wrap">
+                            <input type="password" id="passwordInput" class="pwd-input" placeholder="Digite uma senha para teste...">
+                            <button class="pwd-toggle-visibility" id="pwdToggleBtn" aria-label="Mostrar senha"><i class="fa-solid fa-eye"></i></button>
+                        </div>
+
+                        <div class="strength-bar-container">
+                            <div id="strengthBar" class="strength-bar"></div>
+                        </div>
+
+                        <div class="pwd-feedback-grid">
+                            <div class="pwd-stat-box">
+                                <div class="pwd-stat-lbl">Nível de Força</div>
+                                <div class="pwd-stat-val" id="pwdStrengthTxt" style="color: var(--accent-red);">Insegura</div>
+                            </div>
+                            <div class="pwd-stat-box">
+                                <div class="pwd-stat-lbl">Tempo de Quebra Est.</div>
+                                <div class="pwd-stat-val" id="pwdCrackTime" style="color: var(--accent-red); font-size: 0.85rem;">Imediato</div>
+                            </div>
+                        </div>
+
+                        <div class="pwd-suggestions" id="pwdSuggestionsBox" style="display: none;">
+                            <span class="cyber-label" style="font-size: 0.75rem;"><i class="fa-solid fa-circle-exclamation"></i> Recomendações de Melhoria</span>
+                            <ul id="pwdSuggestionsList">
+                                <!-- Populated dynamically -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Widget 2: Risk quiz -->
+                    <div class="panel" style="display: flex; flex-direction: column;">
+                        <h3 class="panel-title"><i class="fa-solid fa-circle-question"></i> Calculadora de Risco de Invasão</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                            Responda a este questionário rápido para descobrir o seu índice de vulnerabilidade e receber conselhos defensivos customizados.
+                        </p>
+
+                        <div class="quiz-container" id="quizContainer">
+                            <div class="quiz-progress-bar">
+                                <div class="quiz-progress" id="quizProgress"></div>
+                            </div>
+                            
+                            <div id="quizQuestionBox">
+                                <div class="quiz-question" id="quizQuestionText">Questão 1 de 5</div>
+                                <div class="quiz-options" id="quizOptions">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-nav-row">
+                                <button class="btn-cyber btn-cyber-green" id="quizNextBtn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; display: none;">Avançar <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Widget 3: File Cryptography Simulator -->
+                <div class="panel" style="margin-top: 2rem;">
+                    <h3 class="panel-title"><i class="fa-solid fa-shield-halved"></i> Simulador de Criptografia Baseada em Chaves (AES-256)</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Veja como a criptografia funciona na prática. Digite um texto sensível, gere uma chave de segurança virtual e execute a cifragem.
+                    </p>
+
+                    <div class="about-grid">
+                        <div class="encrypt-wrapper">
+                            <label class="cyber-label">Texto para Cifrar</label>
+                            <textarea id="cryptInput" class="crypt-area" placeholder="Digite uma mensagem secreta aqui para criptografar..."></textarea>
+                            
+                            <div class="form-group">
+                                <label class="cyber-label">Chave de Encriptação (AES)</label>
+                                <div style="display: flex; gap: 10px;">
+                                    <input type="text" id="cryptKey" class="cyber-input" style="font-family: var(--font-mono); color: var(--accent-green);" placeholder="Chave AES gerada..." readonly>
+                                    <button class="btn-cyber btn-cyber-green" id="generateKeyBtn" style="padding: 0.5rem 1rem; font-size: 0.8rem; flex-shrink: 0;"><i class="fa-solid fa-rotate"></i> Gerar Chave</button>
+                                </div>
+                            </div>
+
+                            <div class="crypt-actions">
+                                <button class="btn-cyber" id="encryptBtn" style="flex: 1;"><i class="fa-solid fa-lock"></i> Criptografar</button>
+                                <button class="btn-cyber btn-cyber-green" id="decryptBtn" style="flex: 1;"><i class="fa-solid fa-lock-open"></i> Descriptografar</button>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <label class="cyber-label">Painel de Saída Criptográfica</label>
+                                <div class="crypt-output" id="cryptOutput">
+                                    <span class="crypt-output-lbl">AES OUTPUT</span>
+                                    <span>[Aguardando texto...]</span>
+                                </div>
+                            </div>
+
+                            <div style="background: rgba(0, 240, 255, 0.02); border: 1px solid rgba(0, 240, 255, 0.05); padding: 1rem; border-radius: 6px; font-size: 0.8rem; margin-top: 1rem;">
+                                <strong><i class="fa-solid fa-info-circle" style="color: var(--accent-cyan);"></i> Nota do Engenheiro:</strong>
+                                <p style="color: var(--text-secondary); margin-top: 0.3rem;">
+                                    A criptografia simétrica AES-256 é o padrão mundial para proteção de dados governamentais confidenciais. Ela embaralha a entrada usando a chave gerada de modo que reverter sem a chave é matematicamente impossível com o hardware atual.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: DOWNLOADS -->
+            <section id="download" class="content-section">
+                <div class="panel">
+                    <h2 class="panel-title"><i class="fa-solid fa-download"></i> Downloads de Ferramentas Gratuitas e Manuais</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Fornecemos utilitários de código aberto e manuais defensivos criados por Wendell &amp; Scheilla para reforçar o seu setup básico de segurança.
+                    </p>
+
+                    <div class="download-grid">
+                        <!-- Download Item 1 -->
+                        <div class="download-card">
+                            <div class="download-meta">
+                                <span>PLATAFORMA: WIN/LINUX</span>
+                                <span class="download-version">v1.2.4</span>
+                            </div>
+                            <h3 class="download-title"><i class="fa-solid fa-shield-virus" style="color: var(--accent-green);"></i> W&S Secure Shield</h3>
+                            <p class="download-desc">Ferramenta local ultraleve em CLI para varredura e auditoria rápida de portas abertas vulneráveis e arquivos de sistema modificados recentemente.</p>
+                            <button class="btn-cyber btn-cyber-green" onclick="triggerDownload('ws_shield_cli.zip')">
+                                <i class="fa-solid fa-file-zipper"></i> Download ZIP (4.8 MB)
+                            </button>
+                        </div>
+
+                        <!-- Download Item 2 -->
+                        <div class="download-card">
+                            <div class="download-meta">
+                                <span>PLATAFORMA: MULTIPLATAFORMA</span>
+                                <span class="download-version">v2.1.0</span>
+                            </div>
+                            <h3 class="download-title"><i class="fa-solid fa-vault" style="color: var(--accent-cyan);"></i> W&S Encrypted Vault</h3>
+                            <p class="download-desc">Cofre offline portable para anotações críticas criptografadas localmente com hash de acesso mestre gerado localmente em PBKDF2.</p>
+                            <button class="btn-cyber" onclick="triggerDownload('ws_vault_portable.exe')">
+                                <i class="fa-solid fa-download"></i> Download EXE (12.4 MB)
+                            </button>
+                        </div>
+
+                        <!-- Download Item 3 -->
+                        <div class="download-card">
+                            <div class="download-meta">
+                                <span>FORMATO: PDF MANUAL</span>
+                                <span class="download-version">2026 EDITION</span>
+                            </div>
+                            <h3 class="download-title"><i class="fa-solid fa-file-pdf" style="color: var(--accent-amber);"></i> Guia de Sobrevivência Digital</h3>
+                            <p class="download-desc">Manual completo e estruturado ensinando a configurar roteadores corporativos domésticos, navegadores seguros, 2FA robusto e identificação de phishing.</p>
+                            <button class="btn-cyber btn-cyber-green" style="border-color: var(--accent-amber); color: var(--accent-amber);" onclick="triggerManualDownload()">
+                                <i class="fa-solid fa-file-arrow-down"></i> Baixar Manual PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: CONTATO -->
+            <section id="contato" class="content-section">
+                <div class="contact-info-grid">
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-card-info">
+                            <h4>Email Principal (Dev/Software)</h4>
+                            <p><a href="mailto:wscybersegurancadev@proton.me">wscybersegurancadev@proton.me</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fa-solid fa-user-shield"></i></div>
+                        <div class="contact-card-info">
+                            <h4>Email Forense (Banco de Dados/Forense)</h4>
+                            <p><a href="mailto:scheilladatabasa@proton.me">scheilladatabasa@proton.me</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fa-solid fa-lock"></i></div>
+                        <div class="contact-card-info">
+                            <h4>Chave PGP Pública</h4>
+                            <p><a href="#pgp-key" onclick="showPgpKey()">Ver Chave de Criptografia</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title"><i class="fa-solid fa-terminal"></i> Terminal de Contato Direto</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Envie uma mensagem criptografada diretamente para os e-mails da W&S. Seus dados serão transmitidos via conexões SSL blindadas.
+                    </p>
+
+                    <form class="cyber-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="cyber-label">Seu Nome / Empresa</label>
+                                <input type="text" id="contactName" class="cyber-input" required placeholder="Ex: Wendell Silva">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label">E-mail de Retorno Seguro</label>
+                                <input type="email" id="contactEmail" class="cyber-input" required placeholder="nome@provedor.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label">Assunto</label>
+                            <input type="text" id="contactSubject" class="cyber-input" required placeholder="Ex: Incidente de Segurança / Novo Software">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label">Mensagem Criptografada</label>
+                            <textarea id="contactMessage" class="cyber-textarea" required placeholder="Escreva os detalhes do seu problema ou proposta aqui..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-cyber btn-cyber-green" style="align-self: flex-start; padding: 1rem 3rem;">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem Segura
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECTION: CONTRATAR -->
+            <section id="contratar" class="content-section">
+                <div class="panel">
+                    <h2 class="panel-title"><i class="fa-solid fa-file-signature"></i> Contratar a W&S Cyber Segurança</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Monte o seu escopo de proteção personalizada e simule instantaneamente o orçamento base estimado. Wendell &amp; Scheilla responderão em até 24 horas úteis com o contrato e acordo de confidencialidade (NDA).
+                    </p>
+
+                    <form class="cyber-form" id="hireForm">
+                        <!-- Step 1: Services Selector -->
+                        <div class="form-group">
+                            <label class="cyber-label">Selecione os Serviços Desejados</label>
+                            <div class="services-selector">
+                                <div class="service-select-card" data-service="seguranca" data-price="2500">
+                                    <div class="service-checkbox"><i class="fa-solid fa-check"></i></div>
+                                    <span class="service-select-label">Cyber Segurança (Pentests)</span>
+                                </div>
+                                <div class="service-select-card" data-service="investigacao-dig" data-price="3500">
+                                    <div class="service-checkbox"><i class="fa-solid fa-check"></i></div>
+                                    <span class="service-select-label">Investigação Digital</span>
+                                </div>
+                                <div class="service-select-card" data-service="investigacao-priv" data-price="4000">
+                                    <div class="service-checkbox"><i class="fa-solid fa-check"></i></div>
+                                    <span class="service-select-label">Investigação Privada</span>
+                                </div>
+                                <div class="service-select-card" data-service="desenvolvimento" data-price="3000">
+                                    <div class="service-checkbox"><i class="fa-solid fa-check"></i></div>
+                                    <span class="service-select-label">Desenvolvimento Software</span>
+                                </div>
+                                <div class="service-select-card" data-service="protecao-invasao" data-price="2000">
+                                    <div class="service-checkbox"><i class="fa-solid fa-check"></i></div>
+                                    <span class="service-select-label">Proteção contra Invasão</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Environment and Priority -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="cyber-label">Ambiente Alvo</label>
+                                <select id="hireEnvironment" class="cyber-select">
+                                    <option value="pessoal" data-multiplier="1.0">Uso Pessoal / Dispositivos Físicos</option>
+                                    <option value="pyme" data-multiplier="1.5">Pequena/Média Empresa (Até 50 nodes)</option>
+                                    <option value="corporativo" data-multiplier="2.5">Grande Corporação (Sistemas Complexos)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="cyber-label">Nível de Prioridade</label>
+                                <select id="hirePriority" class="cyber-select">
+                                    <option value="normal" data-multiplier="1.0">Normal (Análise programada)</option>
+                                    <option value="urgente" data-multiplier="1.3">Urgente (Execução rápida em 48h)</option>
+                                    <option value="emergencia" data-multiplier="1.8">Emergência Crítica (Mitigação Imediata / Invasão em Curso)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Details -->
+                        <div class="form-group">
+                            <label class="cyber-label">Descrição das Infraestruturas e Escopo</label>
+                            <textarea id="hireScope" class="cyber-textarea" required placeholder="Descreva os sistemas envolvidos, marcas de celulares, volume de dados, ou suspeitas de invasão ativos para acelerarmos a auditoria..."></textarea>
+                        </div>
+
+                        <!-- Step 4: Contact details -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="cyber-label">Nome de Contato Secundário</label>
+                                <input type="text" id="hireName" class="cyber-input" required placeholder="Nome completo">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label">E-mail para Envio do NDA</label>
+                                <input type="email" id="hireEmail" class="cyber-input" required placeholder="contato@empresa.com">
+                            </div>
+                        </div>
+
+                        <!-- Interactive Budget Calculator -->
+                        <div class="calculator-panel">
+                            <div class="calc-text">
+                                <h4 class="calc-title">Orçamento Base Simulado</h4>
+                                <p class="calc-desc">Preço estimado para consultoria e execução inicial com base nos parâmetros selecionados.</p>
+                            </div>
+                            <div class="calc-price" id="calcPriceDisplay">R$ 0,00</div>
+                        </div>
+
+                        <button type="submit" class="btn-cyber btn-cyber-green" style="align-self: flex-start; padding: 1.2rem 4rem; font-size: 1rem; margin-top: 1rem;">
+                            <i class="fa-solid fa-file-contract"></i> Solicitar Análise de Contrato
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Notification system wrap -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Script Entrypoint -->
+    <script src="app.js"></script>
+</body>
+</html>
