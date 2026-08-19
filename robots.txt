@@ -1,0 +1,4 @@
+   User-agent: *
+   Allow: /
+   
+   Sitemap: https://brunnotinoco1-sys.github.io/wscyberseguranca/sitemap.xml
